@@ -76,4 +76,192 @@
         select,
         textarea {
             width: 100%;
-           
+            padding: 12px;
+            border: 1.5px solid var(--border-ui);
+            border-radius: 10px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: all 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.1);
+        }
+
+        .radio-check-container {
+            display: flex;
+            gap: 20px;
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .inline-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            accent-color: var(--primary-color);
+            width: 18px;
+            height: 18px;
+        }
+
+        .acciones {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        button, input[type="submit"], input[type="reset"] {
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            transition: transform 0.1s, background 0.2s;
+        }
+
+        input[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            flex: 2;
+        }
+
+        input[type="submit"]:hover {
+            background-color: var(--primary-dark);
+        }
+
+        input[type="reset"] {
+            background-color: #f1f5f9;
+            color: #475569;
+            flex: 1;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="post" action="#">
+        <h1>Portal de Turnos Médicos</h1>
+
+        <!-- SECCIÓN 1: DATOS DEL PACIENTE -->
+        <fieldset>
+            <legend>01. Datos Personales</legend>
+            
+            <div class="campo">
+                <label for="nombre">Nombre y Apellido Completo</label>
+                <input type="text" id="nombre" name="nombre" required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" maxlength="60" placeholder="Ej: Juan Pérez" title="Solo se permiten letras y espacios (máx. 60)">
+            </div>
+
+            <div class="campo">
+                <label for="dni">DNI (Sin puntos)</label>
+                <input type="text" id="dni" name="dni" required pattern="\d{7,8}" placeholder="46444333" title="Debe ingresar exactamente 7 u 8 números">
+            </div>
+
+            <div class="campo">
+                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required max="2026-04-06">
+            </div>
+
+            <div class="campo">
+                <label for="email">Email Institucional</label>
+                <input type="email" id="email" name="email" required placeholder="legajo@sistemas.frc.utn.edu.ar">
+            </div>
+
+            <div class="campo">
+                <label for="telefono">Teléfono (Opcional)</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="351XXXXXXX">
+            </div>
+
+            <div class="campo">
+                <label for="obraSocial">Obra Social</label>
+                <select id="obraSocial" name="obraSocial" required>
+                    <option value="" disabled selected>Seleccione cobertura...</option>
+                    <optgroup label="Obras sociales universitarias">
+                        <option value="daspu">DASPU</option>
+                        <option value="osnu">OSNU</option>
+                    </optgroup>
+                    <optgroup label="Prepagas">
+                        <option value="osde">OSDE</option>
+                        <option value="swiss">Swiss Medical</option>
+                        <option value="galeno">Galeno</option>
+                    </optgroup>
+                </select>
+            </div>
+        </fieldset>
+
+        <!-- SECCIÓN 2: DATOS DEL TURNO -->
+        <fieldset>
+            <legend>02. Detalles de la Cita</legend>
+
+            <div class="campo">
+                <label for="especialidad">Especialidad médica</label>
+                <select id="especialidad" name="especialidad" required>
+                    <option value="" disabled selected>Elija especialidad...</option>
+                    <option value="clinica">Clínica Médica</option>
+                    <option value="traumato">Traumatología</option>
+                    <option value="derma">Dermatología</option>
+                    <option value="oftalmo">Oftalmología</option>
+                    <option value="nutri">Nutrición</option>
+                    <option value="psico">Psicología</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="fechaTurno">Fecha para el turno</label>
+                <input type="date" id="fechaTurno" name="fechaTurno" required min="2026-04-07">
+            </div>
+
+            <div class="campo">
+                <label>Franja Horaria</label>
+                <div class="radio-check-container">
+                    <label class="inline-label">
+                        <input type="radio" name="franja" value="manana" required> Mañana
+                    </label>
+                    <label class="inline-label">
+                        <input type="radio" name="franja" value="tarde"> Tarde
+                    </label>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label class="inline-label">
+                    <input type="checkbox" name="primeraConsulta"> Es mi primera consulta
+                </label>
+            </div>
+
+            <div class="campo">
+                <label for="motivo">Motivo de consulta</label>
+                <textarea id="motivo" name="motivo" required maxlength="300" rows="3" placeholder="Describa brevemente sus síntomas..."></textarea>
+            </div>
+        </fieldset>
+
+        <!-- SECCIÓN 3: CONSENTIMIENTO -->
+        <fieldset>
+            <legend>03. Confirmación</legend>
+            <div class="campo">
+                <label class="inline-label">
+                    <input type="checkbox" name="consentimiento" required> 
+                    Declaro que los datos ingresados son correctos
+                </label>
+            </div>
+        </fieldset>
+
+        <div class="acciones">
+            <input type="submit" value="Confirmar Turno">
+            <input type="reset" value="Limpiar">
+        </div>
+    </form>
+
+</body>
+</html>
