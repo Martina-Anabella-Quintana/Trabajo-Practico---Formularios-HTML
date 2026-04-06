@@ -1,117 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Sistema de Turnos Medicos</title>
-</head>
-<body>
-    <h1>Turnero</h1>
-    <form>
-        <div>Datos del paciente</div>
+    <title>Sistema de Turnos Médicos - UTN FRC</title>
+    <style>
+        :root {
+            --primary-color: #0d9488;
+            --primary-dark: #0f766e;
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --border-ui: #e2e8f0;
+        }
 
-        <div class="form-input">
-            <label>Nombre Completo
-                <input type="text" placeholder="Juan Ignacio Rettoret" required>
-            </label>
-        </div>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
 
-        <div>
-            <label>DNI
-                <input type="number" placeholder="46444333" required>
-            </label>
-        </div>
+        form {
+            background: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border-ui);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
 
-        <div class="form-input">
-            <label>Fecha de Nacimiento
-                <input type="date" max="2026-06-04" required>
-            </label>
-        </div>
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 15px;
+        }
 
-        <div>
-            <label>Correo electronico Institucional
-                <input type="email" placeholder="460987@sistemas.frc.utn.edu.ar" required>
-            </label>
-        </div>
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+        }
 
-        <div>
-            <label>Telefono (opcional)
-                <input type="tel" placeholder="3517772222">
-            </label>
-        </div>
+        legend {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
 
-        <div class="form-input">
-            <label>Obra social
-                <select required>
-                    <optgroup label="Obras sociales universitarias">
-                    <option value="DOSUBA">DOSUBA</option>
-                    <option value="OSPUNC">OSPUNC</option>
-                    </optgroup>
+        .campo {
+            margin-bottom: 20px;
+        }
 
-                    <optgroup label="Prepagas">
-                    <option value="OSDE">OSDE</option>
-                    <option value="SANCOR">SANCOR</option>
-                    <option value="OTRO">OTRO</option>
-                    </optgroup>
-                </select>
-            </label>
-        </div>
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
 
-        <div>Datos del turno</div>
-
-        <div class="form-input">
-            <label>Especialidad medica
-                <select requiere>
-                    <option value="clinica">Clinica medica</option>
-                    <option value="traumato">Traumatologia</option>
-                    <option value="derma">Dermatologia</option>
-                    <option value="ofta">Oftalmologia</option>
-                    <option value="nutri">Nutricion</option>
-                    <option value="psico">Psicologia</option>
-                </select>
-            </label>
-        </div>
-
-        <div class="form-input">
-            <label>Fecha de Nacimiento
-                <input type="date" min="2026-06-04" required>
-            </label>
-        </div>
-
-        <div class="form-input">
-            <label>Franja horaria preferida
-                <input type="radio" name="horario" value="mañana" required>
-                Mañana
-            </label>
-
-            <label>
-                <input type="radio" name="horario" value="tarde">
-                Tarde
-            </label>
-        </div>
-
-        <div>
-            <label>Primera consulta
-                <input type="checkbox">
-            </label>
-        </div>
-
-        <div class="form-input">
-            <label>Sintomas o motivo de consulta
-                <textarea rows="8" maxlength="300" placeholder="Que sintomas tiene?" required></textarea>
-            </label>
-        </div>
-
-        <div class="form-input">
-            <label>Declaro que los datos ingresados son correctos
-                <input type="checkbox">
-            </label>
-        </div>
-        <div class="form-input">
-    <input type="submit" value="Enviar">
-    <input type="reset" value="Limpiar">
-</div>
-    </form>
-</body>
-</html>
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+           
