@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sistema de Turnos Medicos</title>
+</head>
+<body>
+    <h1>Turnero</h1>
+    <form>
+        <div>Datos del paciente</div>
+
+        <div class="form-input">
+            <label>Nombre Completo
+                <input type="text" placeholder="Juan Ignacio Rettoret" required>
+            </label>
+        </div>
+
+        <div>
+            <label>DNI
+                <input type="number" placeholder="46444333" required>
+            </label>
+        </div>
+
+        <div class="form-input">
+            <label>Fecha de Nacimiento
+                <input type="date" max="2026-06-04" required>
+            </label>
+        </div>
+
+        <div>
+            <label>Correo electronico Institucional
+                <input type="email" placeholder="460987@sistemas.frc.utn.edu.ar" required>
+            </label>
+        </div>
+
+        <div>
+            <label>Telefono (opcional)
+                <input type="tel" placeholder="3517772222">
+            </label>
+        </div>
+
+        <div class="form-input">
+            <label>Obra social
+                <select required>
+                    <optgroup label="Obras sociales universitarias">
+                    <option value="DOSUBA">DOSUBA</option>
+                    <option value="OSPUNC">OSPUNC</option>
+                    </optgroup>
+
+                    <optgroup label="Prepagas">
+                    <option value="OSDE">OSDE</option>
+                    <option value="SANCOR">SANCOR</option>
+                    <option value="OTRO">OTRO</option>
+                    </optgroup>
+                </select>
+            </label>
+        </div>
+
+        <div>Datos del turno</div>
+
+        <div class="form-input">
+            <label>Especialidad medica
+                <select requiere>
+                    <option value="clinica">Clinica medica</option>
+                    <option value="traumato">Traumatologia</option>
+                    <option value="derma">Dermatologia</option>
+                    <option value="ofta">Oftalmologia</option>
+                    <option value="nutri">Nutricion</option>
+                    <option value="psico">Psicologia</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="form-input">
+            <label>Fecha de Nacimiento
+                <input type="date" min="2026-06-04" required>
+            </label>
+        </div>
+
+        <div class="form-input">
+            <label>Franja horaria preferida
+                <input type="radio" name="horario" value="mañana" required>
+                Mañana
+            </label>
+
+            <label>
+                <input type="radio" name="horario" value="tarde">
+                Tarde
+            </label>
+        </div>
+
+        <div>
+            <label>Primera consulta
+                <input type="checkbox">
+            </label>
+        </div>
+
+        <div class="form-input">
+            <label>Sintomas o motivo de consulta
+                <textarea rows="8" maxlength="300" placeholder="Que sintomas tiene?" required></textarea>
+            </label>
+        </div>
+
+        <div class="form-input">
+            <label>Declaro que los datos ingresados son correctos
+                <input type="checkbox">
+            </label>
+        </div>
+        <div class="form-input">
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Limpiar">
+</div>
+    </form>
+</body>
+</html>
